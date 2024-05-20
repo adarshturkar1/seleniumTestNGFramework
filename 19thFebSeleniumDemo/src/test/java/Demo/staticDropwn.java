@@ -1,0 +1,42 @@
+package Demo;
+
+import org.openqa.selenium.By; 
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.WebElement; 
+import org.openqa.selenium.chrome.ChromeDriver; 
+import org.openqa.selenium.support.ui.Select; 
+ 
+public class staticDropwn { 
+ 
+	public static void main(String[] args) throws InterruptedException { 
+ 
+		WebDriver driver = new ChromeDriver(); 
+		driver.get("https://rahulshettyacademy.com/dropdownsPractise/"); 
+ 
+		WebElement a = driver.findElement(By.xpath("//select[@id='ctl00_mainContent_DropDownListCurrency']")); 
+ 
+		// we can use only if we have select tagname --- 
+		Select s = new Select(a); 
+ 
+		s.selectByIndex(0); 
+		s.selectByValue("INR"); 
+		// s.selectByVisibleText(null) 
+ 
+		// select 4 adult passeneger 
+ 
+		driver.findElement(By.xpath("//div[@id='divpaxinfo']")).click(); 
+ 
+		WebElement k=driver.findElement(By.xpath("//span[@id='hrefIncAdt']")); 
+		 
+		Thread.sleep(2000); 
+		for (int i = 0; i <= 2; i++) { 
+			k.click(); 
+		} 
+ 
+	} 
+ 
+}
+		 
+		 
+		 
+		

@@ -1,0 +1,33 @@
+package Demo;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class BasicSelenium {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		WebDriver driver=new ChromeDriver(); 
+ 		driver.get("https://www.amazon.in/"); 
+		
+ 		System.out.println(driver.getCurrentUrl());
+ 		
+ 		System.out.println(driver.getTitle());
+ 		
+ 		
+ 		driver.navigate().back();
+ 		
+ 		Thread.sleep(2000);
+ 		
+ 		driver.navigate().forward();
+ 		driver.navigate().refresh();
+ 		
+ 		driver.manage().window().maximize();
+ 		
+ 		//driver.close();
+ 	
+ 		driver.quit();
+ 		
+	}
+	
+}

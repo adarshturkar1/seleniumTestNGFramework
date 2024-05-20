@@ -1,0 +1,60 @@
+package Demo;
+
+import java.util.Iterator; 
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.chrome.ChromeDriver; 
+ 
+public class nestedTabshandeling { 
+ 
+	public static void main(String[] args) { 
+ 
+		WebDriver driver = new ChromeDriver(); 
+		driver.get("https://www.naukri.com/"); 
+		
+		// print the current url ---
+		System.out.println(driver.getCurrentUrl());
+		
+		// click on got it popup-- 
+		driver.findElement(By.xpath("//span[@class='acceptance-btn-text']")).click(); 
+		
+		// clcik on mnc-- 
+		driver.findElement(By.xpath("(//span[@class='ntc__chip-label'])[2]")).click(); 
+
+		 
+		 Set<String> tabs= driver.getWindowHandles(); //p //c 
+		  
+		 Iterator<String> it = tabs.iterator(); 
+		   
+		 String parentTab= it.next(); 
+		 String childTab= it.next(); 
+		  
+		 
+		// print the currenlt iurl --https://www.naukri.com/mnc-jobs?src=discovery_trendingWdgt_homepage_srch 
+		 
+		 
+		//(//a[@class='title '])[1].click(); 
+		 
+		/* 
+		 * Set<String> tabs= driver.getWindowHandles(); // 3tab s 
+		 *  
+		 * Iterator<String> it = tabs.iterator(); 
+		 *  
+		 * String parentTab= it.next();  
+		 * String childTab1= it.next(); 
+		 * String childTab2= it.next(); 
+		 *  
+		 * driver.switch.widnow(childtab2) 
+		// print the currenlt iurl ----3d tab url-- 
+		 *  
+		 *  
+		 *  
+		 //switch to parentTab 
+		 //print the current url */ 
+		   
+ 
+	} 
+ 
+}

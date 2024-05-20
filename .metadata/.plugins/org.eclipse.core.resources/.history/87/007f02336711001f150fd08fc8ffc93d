@@ -1,0 +1,12 @@
+package resources;
+
+public class baseClass {
+
+	
+	  WebDriver driver = new ChromeDriver();
+	
+	
+	
+	
+	
+}

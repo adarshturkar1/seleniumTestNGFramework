@@ -1,0 +1,40 @@
+package pageObjectModel;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class LoginPageObject {
+
+	
+	 public WebDriver driver;
+	 
+		private By EMailAddress = By.xpath("//input[@name='firstname']");   //XPath
+		private By Password = By.xpath("//input[@name='lastname']");         //XPath
+		private By Login = By.xpath("//input[@name='email']");              //XPath
+	
+		public LoginPageObject(WebDriver driver2) {
+			// TODO Auto-generated constructor stub
+			
+			this.driver=driver2;
+		}
+
+
+		public WebElement sendKeysOnEMailAddress() {
+	       
+			return driver.findElement(EMailAddress);	
+		}
+	
+		
+		public WebElement sendKeysOnPassword() {
+			
+			return driver.findElement(Password);
+		}
+	
+		
+		public WebElement ClickOnLogin() {
+	       
+			return driver.findElement(Login);	
+		}
+		
+}

@@ -1,0 +1,44 @@
+package Demo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumLocators {
+
+	// 8 locators 
+    //xpath 
+	//id--- 
+	//name 
+	//css selector 
+	//claansmae 
+	//tagname 
+	//linktext 
+	//partiallinktext 
+	 
+	 
+	 
+	public static void main(String[] args) { 
+		 
+		WebDriver driver=new ChromeDriver(); 
+		 
+		driver.get("https://login.salesforce.com/?locale=in"); 
+		 
+		 
+		 
+		driver.findElement(By.id("username")).sendKeys("hii"); 
+		 
+		 
+		driver.findElement(By.name("pw")).sendKeys("hello"); 
+		 
+		driver.findElement(By.id("Login")).click(); 
+		 
+		//driver.findElement(By.linkText("Forgot Your Password?")).click();
+		
+		driver.findElement(By.partialLinkText("Forgot Your Password?")).click();
+		
+		
+	} 
+	 
+ 
+}

@@ -1,0 +1,39 @@
+package pageObjectModel;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class HomePageObjects {
+ 
+	 public WebDriver driver;
+	 
+	//By can store Xpath
+	// need to access this both in TestCases , but due to private it will be not possible
+	// so we will use getter and setter method
+	// setter method 
+	//incapsulation declare private and use public getter and setter 
+	private By myAccount = By.xpath("//span[text()='My Account']");
+	private By resgister = By.xpath("//a[text()='Register']");
+	
+	
+	//getter method
+	
+	public WebElement clickOnMyAccount1() {
+       
+		// void means return noting, so we will create separate driver by declaring " public WebDriver driver;" 
+		return driver.findElement(myAccount);
+		
+		
+	}
+	
+	public WebElement clickOnRegister() {
+		
+		return driver.findElement(resgister);
+		
+		
+	
+	
+	}
+	
+}

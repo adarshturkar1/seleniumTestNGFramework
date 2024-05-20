@@ -1,0 +1,74 @@
+package resources;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.BeforeMethod;
+
+public class baseClass {
+public WebDriver driver;
+
+public static String emailId=generateRandoEmailID(); 
+
+public Properties prop;
+	 
+	//WebDriver driver=new ChromeDriver(); 
+	
+	public void initilizeDriver() throws IOException {
+	
+		// Read the properties file -- 
+		FileInputStream fis=new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\resources\\data.properties");
+		
+		// help to access data from file -- 
+		  prop = new Properties();
+		
+		// loading  fis in prop
+		prop.load(fis);
+		
+		String browserName = prop.getProperty("browser");
+		
+		if(browserName.equalsIgnoreCase("Chrome")) {
+			
+			driver = new ChromeDriver();
+	
+		}
+		
+		else if (browserName.equalsIgnoreCase("firefox")) {
+			
+			driver = new FirefoxDriver();
+		}	
+		else if (browserName.equalsIgnoreCase("edge")) {
+					
+			driver = new EdgeDriver();
+		}
+		else {
+					  
+				  System.out.println("Please choose the proper browser");
+					  
+				  }
+		
+	}
+	
+	
+	//created a method to generate random email id using System.currentTimeMillis()
+	// stored a returned email in variable above
+	 public static String generateRandoEmailID() { 
+		  
+ 		 return "test"+System.currentTimeMillis()+"@gmail.com"; 
+ 		 
+ 		  } 
+		
+	 @BeforeMethod
+	 public void browserAndurlLaunch() throws IOException {
+		
+		 initilizeDriver();
+		
+		driver.get(prop.getProperty("url"));
+		
+	 }  
+	 
+}

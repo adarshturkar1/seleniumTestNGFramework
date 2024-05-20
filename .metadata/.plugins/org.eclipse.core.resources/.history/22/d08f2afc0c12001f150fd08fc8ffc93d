@@ -1,0 +1,44 @@
+package testcases;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import pageObjectModel.HomePageObjects;
+import pageObjectModel.LoginPageObject;
+import resources.baseClass;
+
+public class loginTestCases extends baseClass{
+
+	@Test
+	public void verifyLoginWithValidData() throws IOException {
+		
+		initilizeDriver();
+		
+		 
+		driver.get("https://naveenautomationlabs.com/opencart/");
+		
+		 
+		 HomePageObjects hpo=new HomePageObjects(driver);
+		 hpo.clickOnMyAccount1().click();
+		 hpo.clickOnlogin().click();
+		 
+		 
+		  
+	}
+	
+    public void verifyLoginWithValidDatas() throws IOException { 
+		
+		initilizeDriver();
+		
+		 
+		driver.get("https://naveenautomationlabs.com/opencart/");
+		
+		 
+		LoginPageObject lpo=new LoginPageObject(driver);
+		lpo.sendKeysOnEMailAddress().sendKeys("Adarsh");
+		lpo.sendKeysOnPassword().sendKeys("Adarsh");
+		lpo.ClickOnLogin().click();
+	}
+	
+}

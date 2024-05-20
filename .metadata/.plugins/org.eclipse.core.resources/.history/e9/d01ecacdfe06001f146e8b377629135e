@@ -1,0 +1,60 @@
+package Demo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver; 
+ 
+public class nestedFames { 
+	 
+	public static void main(String[] args) { 
+		 
+		WebDriver driver = new ChromeDriver(); 
+		driver.get("https://the-internet.herokuapp.com/nested_frames"); 
+		 
+		/* 
+		FrameSet --your control here -- 
+		    
+		   FramTop  
+		          
+				 Left  middle   right 
+				  
+		   FramBottom 
+		    
+		    
+		    
+		 1.swith to framtop --  
+		 2.grab the left text and print 
+		 3.swit toparent frame  
+		 4.switch to miidle - 
+		 5. grab the middle texta nd rpint 
+		 6.swith to parent frame  
+		 7.swithc to right  
+		 8. grab the text and print  
+		 9.switch to default conetnt 
+		 10. swith to frame bottom -- 
+		 11.text grab and print */ 
+		 
+		 
+		 WebElement a=driver.findElement(By.xpath("//frameset[@ rows='50%,50%' ]")); 
+	       driver.switchTo().frame(a); 
+	       
+	       WebElement b=driver.findElement(By.xpath("//frameset[@cols='33%,33%,33%' ]")); 
+	       driver.switchTo().frame(b); 
+	       
+		
+	       System.out.println(driver.findElement(By.xpath("  //frame[@name='frame-left' ]")).getText());
+		
+	       driver.switchTo().defaultContent();
+	       
+	       
+	       
+	       
+	       
+	       
+	       
+	       
+	       
+	} 
+ 
+}

@@ -1,0 +1,65 @@
+package pageObjectModel;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class ResgisterPageObjects {
+
+	 public WebDriver driver;
+	 
+		private By FirstName = By.xpath("//input[@name='firstname']");
+		private By LastName = By.xpath("//input[@name='lastname']");
+		private By EMail = By.xpath("//input[@name='email']");
+		private By Telephone = By.xpath("//input[@name='telephone']");
+		private By Password = By.xpath("//input[@name='password']");
+		private By PasswordConfirm = By.xpath("//input[@name='confirm']");
+		private By Agree = By.xpath("//input[@name='agree']");
+		private By Continue = By.xpath("//input[@value='Continue']");
+		
+		
+		public WebElement sendKeysOnFirstName() {
+	       
+			return driver.findElement(FirstName);	
+		}
+	
+		
+		public WebElement sendKeysOnLastName() {
+			
+			return driver.findElement(LastName);
+		}
+	
+		
+		public WebElement sendKeysOnEMail() {
+	       
+			return driver.findElement(EMail);	
+		}
+	
+		
+		public WebElement sendKeysOnTelephone() {
+			
+			return driver.findElement(Telephone);
+		}
+	
+		
+		public WebElement sendKeysOnPassword() {
+	       
+			return driver.findElement(Password);	
+		}
+	
+		
+		public WebElement sendKeysOnPasswordConfirm() {
+			
+			return driver.findElement(PasswordConfirm);
+		}
+		
+        public WebElement clickOnAgree() {
+			
+			return driver.findElement(Agree);
+		}
+		
+		public WebElement clickOnContinue() {
+			
+			return driver.findElement(Continue);
+		}
+}
